@@ -1,6 +1,3 @@
-<<<<<<< dev
-# credit-card-data-analysis
-=======
 # 💳 FraudShield: Smart Credit Card Fraud Detection Pipeline
 
 ## 📌 Objective
