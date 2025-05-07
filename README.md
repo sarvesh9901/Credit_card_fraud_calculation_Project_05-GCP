@@ -102,3 +102,4 @@ After successful execution:
 ## 📌 Summary
 
 **FraudShield** provides a **robust, automated, and scalable fraud detection system** using GCP and Spark. The project ensures secure, fast, and reliable identification of risky transactions, empowering businesses to react swiftly to fraudulent activities.
+

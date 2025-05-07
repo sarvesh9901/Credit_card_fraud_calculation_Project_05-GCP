@@ -50,12 +50,12 @@ jobs:
       # Upload PySpark Job to GCS
       - name: Upload Spark Job to GCS
         run: |
-          gsutil cp spark_job.py gs://credit_card_data_storage/spark_job/
+          gsutil cp spark_job.py gs://credit_card_project_data/spark_job/
 
       # Upload Airflow DAG to Composer
       - name: Upload Airflow DAG to Composer
         run: |
           gcloud composer environments storage dags import \
-            --environment airflow-dev-new \
+            --environment airflow-dev \
             --location us-central1 \
             --source airflow_job.py
