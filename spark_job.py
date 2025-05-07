@@ -7,10 +7,10 @@ spark = SparkSession.builder \
     .appName("Advanced Credit Card Transactions Processor") \
     .getOrCreate()
 
-json_file_path = 'gs://credit_card_data_storage/transactions/transactions_*.json'
+json_file_path = 'gs://credit_card_project_data/transactions/transactions_*.json'
 
 # Define BigQuery Dataset & Table Names
-BQ_PROJECT_ID = "psyched-service-442305-q1"
+BQ_PROJECT_ID = "shining-rampart-458513-c3"
 BQ_DATASET = "credit_card"
 BQ_CARDHOLDERS_TABLE = f"{BQ_PROJECT_ID}.{BQ_DATASET}.cardholders"
 BQ_TRANSACTIONS_TABLE = f"{BQ_PROJECT_ID}.{BQ_DATASET}.transactions"

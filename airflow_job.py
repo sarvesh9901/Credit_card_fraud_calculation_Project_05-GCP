@@ -12,7 +12,7 @@ default_args = {
     'depends_on_past': False,
     'retries': 1,
     'retry_delay': timedelta(minutes=5),
-    'start_date': datetime(2025, 4, 14),
+    'start_date': datetime(2025, 5, 7),
 }
 
 # Define the DAG
@@ -24,7 +24,7 @@ with DAG(
 ) as dag:
 
     # Define GCS Bucket & File Pattern
-    gcs_bucket = "credit_card_data_storage"
+    gcs_bucket = "credit_card_project_data"
     file_pattern = "transactions/transactions_"
     source_prefix = "transactions/"
     archive_prefix = "archive/"
@@ -45,16 +45,16 @@ with DAG(
     # Task 2: Submit PySpark job to Dataproc Serverless
     batch_details = {
         "pyspark_batch": {
-            "main_python_file_uri": f"gs://credit_card_data_storage/spark_job/spark_job.py"
+            "main_python_file_uri": f"gs://credit_card_project_data/spark_job/spark_job.py"
         },
         "runtime_config": {
             "version": "2.2",
         },
         "environment_config": {
             "execution_config": {
-                "service_account": "910155188932-compute@developer.gserviceaccount.com",
-                "network_uri": "projects/turnkey-channel-358109/global/networks/default",
-                "subnetwork_uri": "projects/turnkey-channel-358109/regions/us-central1/subnetworks/default",
+                "service_account": "864295511552-compute@developer.gserviceaccount.com",
+                "network_uri": "projects/shining-rampart-458513-c3/global/networks/default",
+                "subnetwork_uri": "projects/shining-rampart-458513-c3/regions/us-central1/subnetworks/default",
             }
         },
     }
@@ -63,7 +63,7 @@ with DAG(
         task_id="run_credit_card_processing_job",
         batch=batch_details,
         batch_id=batch_id,
-        project_id="turnkey-channel-358109",
+        project_id="shining-rampart-458513-c3",
         region="us-central1",
         gcp_conn_id="google_cloud_default",
     )
